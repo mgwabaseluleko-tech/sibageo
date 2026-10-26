@@ -1,0 +1,257 @@
+/* ===================================================================
+   SIBAGEO GEOMATICS PRACTITIONERS — design tokens
+   Display: Barlow Condensed | Body: Work Sans | Data: IBM Plex Mono
+=================================================================== */
+:root{
+  --ink:        #0F3B45;   /* primary deep teal */
+  --ink-deep:   #082024;   /* near-black teal, footers/hero */
+  --gold:       #E8A23A;   /* beacon gold accent */
+  --gold-dim:   #C4842A;
+  --contour:    #7E9490;   /* muted sage-grey, topographic line color */
+  --paper:      #F6F4EC;   /* warm off-white background */
+  --paper-dim:  #ECE8DB;
+  --ink-text:   #16211F;
+  --line:       rgba(15,59,69,0.14);
+  --radius:     2px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink-text);
+  font-family:'Work Sans', sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{
+  font-family:'Barlow Condensed', sans-serif;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:0.02em;
+  margin:0 0 0.4em 0;
+  color:var(--ink-deep);
+  line-height:1.05;
+}
+.mono, .plate, .tag, .refno{
+  font-family:'IBM Plex Mono', monospace;
+}
+p{margin:0 0 1em 0;}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+.container{max-width:1180px;margin:0 auto;padding:0 28px;}
+.section{padding:88px 0;}
+.section-tight{padding:56px 0;}
+.eyebrow{
+  font-family:'IBM Plex Mono', monospace;
+  font-size:12.5px;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
+}
+.eyebrow::before{
+  content:'';
+  width:22px;height:1px;background:var(--gold-dim);
+  display:inline-block;
+}
+.lead{font-size:19px;max-width:640px;color:#3A4644;}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:'IBM Plex Mono', monospace;
+  font-size:13px;letter-spacing:0.06em;text-transform:uppercase;
+  padding:14px 26px;border:1px solid var(--ink-deep);
+  background:var(--ink-deep);color:var(--paper);
+  text-decoration:none;border-radius:var(--radius);
+  transition:all .2s ease;
+}
+.btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink-deep);}
+.btn-ghost{background:transparent;color:var(--ink-deep);border-color:var(--ink-deep);}
+.btn-ghost:hover{background:var(--ink-deep);color:var(--paper);}
+.btn-gold{background:var(--gold);border-color:var(--gold);color:var(--ink-deep);}
+.btn-gold:hover{background:var(--paper);border-color:var(--ink-deep);}
+
+/* ============ NAV ============ */
+header.site{
+  position:sticky;top:0;z-index:50;
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+}
+.navwrap{
+  max-width:1180px;margin:0 auto;padding:0 28px;
+  display:flex;align-items:center;justify-content:space-between;
+  height:78px;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink-deep);}
+.brand-mark{width:38px;height:38px;flex:none;}
+.brand-name{font-family:'Barlow Condensed';font-weight:700;font-size:21px;letter-spacing:0.03em;line-height:1;}
+.brand-name span{display:block;font-family:'IBM Plex Mono';font-size:9.5px;letter-spacing:0.18em;color:var(--gold-dim);font-weight:400;text-transform:uppercase;margin-top:3px;}
+nav.mainnav{display:flex;gap:34px;align-items:center;}
+nav.mainnav a{
+  text-decoration:none;color:var(--ink-text);
+  font-family:'IBM Plex Mono';font-size:13px;letter-spacing:0.04em;
+  text-transform:uppercase;position:relative;padding:6px 0;
+}
+nav.mainnav a.active, nav.mainnav a:hover{color:var(--ink);}
+nav.mainnav a.active::after{
+  content:'';position:absolute;left:0;bottom:-2px;width:100%;height:2px;background:var(--gold);
+}
+.navcta{display:flex;align-items:center;gap:22px;}
+.navphone{font-family:'IBM Plex Mono';font-size:13px;color:var(--ink);text-decoration:none;display:none;}
+@media(min-width:900px){.navphone{display:block;}}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--ink-deep);margin:5px 0;}
+@media(max-width:860px){
+  nav.mainnav{
+    position:fixed;inset:78px 0 0 0;background:var(--paper);
+    flex-direction:column;padding:36px 28px;gap:26px;
+    transform:translateX(100%);transition:transform .25s ease;
+  }
+  nav.mainnav.open{transform:translateX(0);}
+  nav.mainnav a{font-size:16px;}
+  .hamburger{display:block;}
+  .navphone{display:none;}
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;overflow:hidden;
+  background:var(--ink-deep);
+  color:var(--paper);
+  padding:110px 0 90px;
+}
+.hero .contour-bg{
+  position:absolute;inset:0;opacity:0.5;pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;}
+.hero h1{
+  color:var(--paper);
+  font-size:clamp(40px,6vw,74px);
+  max-width:900px;
+  margin-bottom:22px;
+}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero .lead{color:#C9D6D3;font-size:19px;max-width:560px;}
+.hero-actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+
+/* Beacon plate — signature element: modeled on a survey beacon reference plate */
+.plate-row{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);
+  margin-top:56px;
+  border:1px solid var(--line);
+}
+.hero .plate-row{background:rgba(246,244,236,0.12);border-color:rgba(246,244,236,0.18);}
+.plate{
+  background:var(--ink-deep);
+  padding:20px 18px;
+  position:relative;
+}
+.plate::before{
+  content:'';position:absolute;top:10px;right:10px;width:5px;height:5px;
+  border-radius:50%;border:1px solid var(--gold);
+}
+.plate .val{font-size:22px;color:var(--gold);display:block;margin-bottom:4px;}
+.plate .lab{font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:#9FB3AF;}
+@media(max-width:760px){.plate-row{grid-template-columns:repeat(2,1fr);}}
+
+/* Light-context plate variant (used off the dark hero) */
+.plate-row.light{background:var(--line);border-color:var(--line);}
+.plate-row.light .plate{background:var(--paper);}
+.plate-row.light .plate .val{color:var(--ink);}
+.plate-row.light .plate .lab{color:#5C6B68;}
+.plate-row.light .plate::before{border-color:var(--gold-dim);}
+
+/* ============ GRID / CARDS ============ */
+.grid{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);}
+.grid-2{grid-template-columns:repeat(2,1fr);}
+.grid-3{grid-template-columns:repeat(3,1fr);}
+.grid-5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:900px){.grid-3{grid-template-columns:repeat(2,1fr);}.grid-5{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.grid-2,.grid-3,.grid-5{grid-template-columns:1fr;}}
+.card{background:var(--paper);padding:34px 30px;}
+.card .num{font-family:'IBM Plex Mono';font-size:12px;color:var(--gold-dim);letter-spacing:0.1em;margin-bottom:14px;display:block;}
+.card h3{font-size:24px;margin-bottom:10px;}
+.card p{color:#3F4C49;font-size:15px;margin-bottom:0;}
+.card-dark{background:var(--ink-deep);color:var(--paper);}
+.card-dark h3{color:var(--paper);}
+.card-dark p{color:#B9C7C4;}
+
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;margin-bottom:46px;flex-wrap:wrap;}
+.section-head h2{font-size:clamp(30px,4vw,46px);max-width:640px;}
+
+/* markers instead of numbering (crosshair bullet) */
+.mk-list{list-style:none;margin:0;padding:0;}
+.mk-list li{
+  display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line);
+  align-items:flex-start;
+}
+.mk-list li:first-child{border-top:1px solid var(--line);}
+.mk-list .mk{
+  flex:none;width:16px;height:16px;margin-top:5px;
+  border:1px solid var(--gold-dim);border-radius:50%;position:relative;
+}
+.mk::before,.mk::after{content:'';position:absolute;background:var(--gold-dim);}
+.mk::before{left:50%;top:-4px;bottom:-4px;width:1px;transform:translateX(-50%);}
+.mk::after{top:50%;left:-4px;right:-4px;height:1px;transform:translateY(-50%);}
+
+/* Bands */
+.band-dark{background:var(--ink-deep);color:var(--paper);}
+.band-dark h2, .band-dark h3{color:var(--paper);}
+.band-dark p{color:#B9C7C4;}
+.band-paper-dim{background:var(--paper-dim);}
+
+/* Footer */
+footer.site{background:var(--ink-deep);color:#B9C7C4;padding:64px 0 30px;}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:50px;}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+footer.site h4{color:var(--paper);font-size:16px;margin-bottom:16px;}
+footer.site a{text-decoration:none;color:#B9C7C4;font-size:14px;display:block;margin-bottom:8px;}
+footer.site a:hover{color:var(--gold);}
+.foot-bottom{border-top:1px solid rgba(246,244,236,0.14);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:12.5px;font-family:'IBM Plex Mono';color:#7E938F;}
+
+/* Project entries (experience page) */
+.proj{
+  border-bottom:1px solid var(--line);padding:26px 0;
+  display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:20px;align-items:baseline;
+}
+.proj:first-child{border-top:1px solid var(--line);}
+.proj .pname{font-family:'Barlow Condensed';font-weight:700;font-size:20px;text-transform:uppercase;color:var(--ink-deep);}
+.proj .ploc{font-size:14px;color:#4E5A57;}
+.proj .pperiod, .proj .pref{font-family:'IBM Plex Mono';font-size:12.5px;color:#5C6B68;}
+@media(max-width:760px){.proj{grid-template-columns:1fr;gap:6px;}}
+
+/* Contact */
+.contact-block{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);}
+@media(max-width:860px){.contact-block{grid-template-columns:1fr;}}
+.contact-item{background:var(--paper);padding:38px 34px;}
+.contact-item h4{font-size:12px;letter-spacing:0.1em;color:var(--gold-dim);margin-bottom:10px;font-family:'IBM Plex Mono';text-transform:uppercase;}
+.contact-item .big{font-size:22px;font-family:'Barlow Condensed';font-weight:600;}
+
+form.enquiry{display:grid;gap:16px;}
+form.enquiry label{font-family:'IBM Plex Mono';font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:#4E5A57;margin-bottom:6px;display:block;}
+form.enquiry input, form.enquiry select, form.enquiry textarea{
+  width:100%;padding:13px 14px;border:1px solid var(--line);background:var(--paper);
+  font-family:'Work Sans';font-size:15px;color:var(--ink-text);border-radius:var(--radius);
+}
+form.enquiry input:focus, form.enquiry select:focus, form.enquiry textarea:focus{
+  outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold);
+}
+form.enquiry textarea{resize:vertical;min-height:120px;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:600px){.row2{grid-template-columns:1fr;}}
+
+.badge-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.badge{
+  font-family:'IBM Plex Mono';font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;
+  border:1px solid var(--line);padding:7px 12px;color:#4E5A57;border-radius:var(--radius);
+}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*{transition:none!important;}}

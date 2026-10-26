@@ -344,6 +344,12 @@ form.enquiry input:focus, form.enquiry select:focus, form.enquiry textarea:focus
   box-shadow:0 0 0 4px rgba(246,146,32,0.25);
 }
 form.enquiry textarea{resize:vertical;min-height:120px;}
+.form-status{margin:4px 0 0;font-size:14px;border-radius:12px;padding:0;}
+.form-status:empty{display:none;}
+.form-status.ok,.form-status.error,.form-status.info{padding:12px 16px;border:1px solid transparent;}
+.form-status.ok{background:rgba(46,160,95,0.14);border-color:rgba(46,160,95,0.4);color:#14532d;}
+.form-status.error{background:rgba(200,60,50,0.12);border-color:rgba(200,60,50,0.4);color:#7f1d1d;}
+.form-status.info{background:rgba(17,105,141,0.1);border-color:rgba(17,105,141,0.3);color:#0b3a52;}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 @media(max-width:600px){.row2{grid-template-columns:1fr;}}
 

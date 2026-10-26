@@ -68,7 +68,12 @@
     <div class="grid grid-2" style="align-items:stretch;">
       <div class="card">
         <h3 style="font-size:22px;margin-bottom:24px;">Send an Enquiry</h3>
-        <form class="enquiry" action="mailto:admin@sibageo.co.za" method="post" enctype="text/plain">
+        <form class="enquiry" id="enquiry-form" action="https://formsubmit.co/admin@sibageo.co.za" method="POST">
+          <input type="text" name="_honey" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;">
+          <input type="hidden" name="_subject" value="New website enquiry — sibageo.co.za">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.sibageo.co.za/contact.html?sent=1">
           <div class="row2">
             <div><label for="name">Full Name</label><input id="name" name="name" type="text" required></div>
             <div><label for="company">Company (optional)</label><input id="company" name="company" type="text"></div>
@@ -93,6 +98,7 @@
             <textarea id="message" name="message" placeholder="Property address / erf number, project timeline, and any relevant details."></textarea>
           </div>
           <button type="submit" class="btn btn-gold" style="justify-self:start;margin-top:6px;">Send Enquiry</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
       <div class="card card-dark">
@@ -146,5 +152,6 @@
   </div>
 </footer>
 <script src="nav.js"></script>
+<script src="contact.js"></script>
 </body>
 </html>
